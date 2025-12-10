@@ -8,10 +8,10 @@ import Appointment from './src/models/Appointment.js';
 
 async function migrate() {
   const mysqlConnection = await mysql.createConnection({
-    host: process.env.MYSQL_OLD_HOST || 'localhost',
-    user: process.env.MYSQL_OLD_USER || 'root',
-    password: process.env.MYSQL_OLD_PASSWORD || 'root',
-    database: process.env.MYSQL_OLD_DB || 'consultorio',
+    host: process.env.MYSQL_OLD_HOST,
+    user: process.env.MYSQL_OLD_USER,
+    password: process.env.MYSQL_OLD_PASSWORD,
+    database: process.env.MYSQL_OLD_DB,
   });
 
   try {
