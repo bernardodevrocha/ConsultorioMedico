@@ -11,6 +11,7 @@ export default function Layout({ children }) {
   }
 
   const user = JSON.parse(localStorage.getItem("user") || "null");
+  const role = user?.role;
 
   return (
     <div className="layout">
@@ -43,6 +44,11 @@ export default function Layout({ children }) {
           >
             Consultas
           </NavLink>
+          {role === "admin" && (
+            <span className="pill" style={{ marginTop: 8 }}>
+              Admin
+            </span>
+          )}
         </nav>
         <button className="btn-logout" onClick={handleLogout}>
           Sair

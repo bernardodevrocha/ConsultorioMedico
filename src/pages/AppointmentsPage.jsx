@@ -70,6 +70,10 @@ export default function AppointmentsPage() {
         payload.cancelReason = reason;
       }
 
+      if(newStatus === "done" || newStatus === "scheduled"){
+        payload.cancelReason = "";
+      }
+
       await api.put(`/appointments/${appointment.id}`, payload);
       loadData();
     } catch (err) {

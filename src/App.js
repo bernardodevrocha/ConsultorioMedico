@@ -4,6 +4,7 @@ import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import PatientsPage from "./pages/PatientsPage";
 import AppointmentsPage from "./pages/AppointmentsPage";
+import SalesFormPage from "./pages/SalesFormPage";
 import Layout from "./components/Layout";
 
 function PrivateRoute({ children }) {
@@ -16,6 +17,7 @@ export default function App() {
     <div className="App">
       <Routes>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/consultorio-virtual" element={<SalesFormPage />} />
         <Route
           path="/"
           element={

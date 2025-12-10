@@ -131,7 +131,7 @@ export default function PatientsPage() {
           <h2>Lista de pacientes</h2>
           <input
             className="input-search"
-            placeholder="Buscar por nome, e-mail ou telefone..."
+            placeholder="Buscar por nome do cliente"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
@@ -150,6 +150,7 @@ export default function PatientsPage() {
                 <th>Data de nascimento</th>
                 <th>Telefone</th>
                 <th>E-mail</th>
+                <th>Observações</th>
               </tr>
             </thead>
             <tbody>
@@ -159,6 +160,7 @@ export default function PatientsPage() {
                   <td>{p.birthDate}</td>
                   <td>{p.phone}</td>
                   <td>{p.email}</td>
+                  <td>{p.notes}</td>
                 </tr>
               ))}
             </tbody>

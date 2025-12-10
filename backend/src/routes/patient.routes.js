@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { authMiddleware } from '../middleware/auth.middleware.js';
+import { requireRole } from '../middleware/role.middleware.js';
 import {
   listPatients,
   createPatient,
@@ -11,10 +12,9 @@ const router = Router();
 
 router.use(authMiddleware);
 
-router.get('/', listPatients);
-router.post('/', createPatient);
-router.put('/:id', updatePatient);
-router.delete('/:id', deletePatient);
+router.get('/', requireRole('admin', 'doctor', 'assistant'), listPatients);
+router.post('/', requireRole('admin', 'doctor', 'assistant'), createPatient);
+router.put('/:id', requireRole('admin', 'doctor', 'assistant'), updatePatient);
+router.delete('/:id', requireRole('admin'), deletePatient);
 
 export default router;
-
